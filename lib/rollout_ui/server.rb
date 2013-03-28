@@ -72,5 +72,12 @@ module RolloutUi
 
       redirect url_path
     end
+
+    post '/users' do
+      users = @wrapper.fetch(params['data']['q'])
+      users ||= {}
+
+      { q: prefix, results: users}.to_json
+    end
   end
 end

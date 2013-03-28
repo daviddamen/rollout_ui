@@ -19,10 +19,23 @@
 
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   <script src="<%=u 'rollout_ui/application.js' %>" type="text/javascript"></script>
+
+  <!-- Extension for Chosen plugin to support ajax calls -->
+  <script src="<%=u 'rollout_ui/chosen.ajaxaddition.jquery.js' %>" type="text/javascript"></script>
+
   <script type="text/javascript">
     $(function() {
-      $("select").chosen({no_results_text: "No groups matched"});
-      $("input.users").chosen();
+      $("select").chosen({no_results_text: "Nothing matched"});
+      /*$("input.users").chosen();*/
+
+      <% @features.each do |feature| %>
+        $("select#<%= feature.name %>_users").ajaxChosen({
+          dataType: 'json',
+          type: 'POST',
+          url:'/rollout/users'
+        },{
+        });
+      <% end %>
 
       $("select, input.users").change(function() {
         $(this).closest("form").submit();

@@ -25,5 +25,13 @@ module RolloutUi
     def redis
       rollout.instance_variable_get("@redis")
     end
+
+    def register_user_fetcher(user_fetcher)
+      @user_fetcher = user_fetcher
+    end
+
+    def fetch(uid_prefix)
+      @user_fetcher.fetch(uid_prefix)
+    end
   end
 end

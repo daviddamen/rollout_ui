@@ -1,6 +1,6 @@
 <h2><%= feature.name %></h2>
 
-<div class="col">
+<div class="col-percentage">
   <%= form_tag feature_path(feature.name), :class => "percentage_form", :method => :put, :remote => true do %>
     <label>Percentage</label>
     <select class="percentage" name="percentage">
@@ -12,7 +12,7 @@
   <% end %>
 </div>
 
-<div class="col">
+<div class="col-groups">
   <%= form_tag feature_path(feature.name), :class => "groups_form", :method => :put, :remote => true do %>
     <label>Groups</label>
     <select id="<%= feature.name %>_groups" class="groups" name="groups[]" multiple="multiple" data-placeholder="Choose a group">
@@ -25,7 +25,7 @@
   <% end %>
 </div>
 
-<div class="col">
+<div class="col-users">
   <%= form_tag feature_path(feature.name), :class => "users_form", :method => :put, :remote => true do %>
     <label>Add User ID</label>
     <input class="users" type="text" name="users[]" value="<%= feature.user_ids.join(",") %>" data-placeholder="Enter User ID" />

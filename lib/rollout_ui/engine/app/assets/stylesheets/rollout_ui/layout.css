@@ -24,9 +24,21 @@ h1 img {
     zoom:1;
 }
 
-.col {
+.col-percentage {
   float: left;
-  width: 270px;
+  width: 160px;
+  padding: 0 25px;
+}
+
+.col-groups {
+  float: left;
+  width: 360px;
+  padding: 0 25px;
+}
+
+.col-users {
+  float: left;
+  width: 290px;
   padding: 0 25px;
 }
 
@@ -78,16 +90,16 @@ h1 img {
 }
 
 #features .feature .users {
-  width: 172px;
+  width: 198px;
   line-height: 27px;
 }
 
 #features .feature .percentage {
-  width: 187px;
+  width: 75px;
 }
 
 #features .feature .groups {
-  width: 213px;
+  width: 299px;
 }
 
 #features .feature .chzn-container-multi .chzn-choices {

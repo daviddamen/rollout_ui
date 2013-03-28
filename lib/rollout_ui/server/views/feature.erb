@@ -1,18 +1,20 @@
 <h2><%= feature.name %></h2>
 
-<div class="col">
-<form accept-charset="UTF-8" action="<%= url_path("#{feature.name}/update") %>" class="percentage_form" data-remote="true" method="post">
+<div class="col-percentage">
+  <form accept-charset="UTF-8" action="<%= url_path("#{feature.name}/update") %>" class="percentage_form" data-remote="true" method="post">
     <label>Percentage</label>
     <select class="percentage" name="percentage">
-      <% 101.times do |i| %>
-        <option value="<%= i %>"<%= " selected='selected'" if feature.percentage == i.to_s %>><%= i %>%</option>
+      <% 0.upto(100) do |i| %>
+        <% if i % 5 == 0 %>
+          <option value="<%= i %>"<%= " selected='selected'" if feature.percentage == i.to_s %>><%= i %>%</option>
+        <% end %>
       <% end %>
     </select>
     <input type="submit" value="Save" />
   </form>
 </div>
 
-<div class="col">
+<div class="col-groups">
   <form accept-charset="UTF-8" action="<%= url_path("#{feature.name}/update") %>" class="groups_form" data-remote="true" method="post">
     <label>Groups</label>
     <select id="<%= feature.name %>_groups" class="groups" name="groups[]" multiple="multiple" data-placeholder="Choose a group">
@@ -25,7 +27,7 @@
   </form>
 </div>
 
-<div class="col">
+<div class="col-users">
   <form accept-charset="UTF-8" action="<%= url_path("#{feature.name}/update") %>" class="users_form" data-remote="true" method="post">
     <label>Add User ID</label>
     <input class="users" type="text" name="users[]" value="<%= feature.user_ids.join(",") %>" data-placeholder="Enter User ID" />

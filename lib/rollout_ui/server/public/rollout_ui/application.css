@@ -835,19 +835,20 @@ h1 img {
 .col-percentage {
   float: left;
   width: 160px;
-  padding: 0 25px;
+  padding: 5px 25px;
 }
 
 .col-groups {
   float: left;
-  width: 360px;
-  padding: 0 25px;
+  width: 700px;
+  padding: 5px 25px;
 }
 
 .col-users {
+  clear:both;
   float: left;
-  width: 290px;
-  padding: 0 25px;
+  width: 960px;
+  padding: 5px 25px;
 }
 
 #container {
@@ -898,7 +899,7 @@ h1 img {
 }
 
 #features .feature .users {
-  width: 198px;
+  width: 804px;
   line-height: 27px;
 }
 
@@ -907,7 +908,7 @@ h1 img {
 }
 
 #features .feature .groups {
-  width: 299px;
+  width: 626px;
 }
 
 #features .feature .chzn-container-multi .chzn-choices {

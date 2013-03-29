@@ -8,6 +8,15 @@
   $("select").chosen({no_results_text: "No groups matched"});
   $("input.users").chosen();
 
+  <% @features.each do |feature| %>
+    $("select#<%= feature.name %>_users").ajaxChosen({
+    dataType: 'json',
+    type: 'POST',
+    url:'/rollout/users'
+    },{
+    });
+  <% end %>
+
   $("select, input.users").change(function() {
     $(this).closest("form").submit();
   });

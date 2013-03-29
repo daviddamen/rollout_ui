@@ -26,7 +26,6 @@
   <script type="text/javascript">
     $(function() {
       $("select").chosen({no_results_text: "Nothing matched"});
-      /*$("input.users").chosen();*/
 
       <% @features.each do |feature| %>
         $("select#<%= feature.name %>_users").ajaxChosen({

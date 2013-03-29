@@ -26,9 +26,13 @@
 </div>
 
 <div class="col-users">
-  <%= form_tag feature_path(feature.name), :class => "users_form", :method => :put, :remote => true do %>
+  <form accept-charset="UTF-8" action="<%= url_path("#{feature.name}/update") %>" class="users_form" data-remote="true" method="post">
     <label>Add User ID</label>
-    <input class="users" type="text" name="users[]" value="<%= feature.user_ids.join(",") %>" data-placeholder="Enter User ID" />
+    <select id="<%= feature.name %>_users" class="users" name="users[]" multiple="multiple" data-placeholder="Enter User ID">
+      <% feature.user_ids.each do |uid| %>
+        <option selected="selected"><%= uid %></option>
+      <% end %>
+    </select>
     <input type="submit" value="Save" />
-  <% end %>
+  </form>
 </div>

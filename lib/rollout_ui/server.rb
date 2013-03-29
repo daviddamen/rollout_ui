@@ -74,7 +74,10 @@ module RolloutUi
     end
 
     post '/users' do
-      users = @wrapper.fetch(params['data']['q'])
+      @wrapper = RolloutUi::Wrapper.new
+      prefix = params['data']['q']
+
+      users = @wrapper.fetch(prefix)
       users ||= {}
 
       { q: prefix, results: users}.to_json

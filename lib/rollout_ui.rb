@@ -21,4 +21,12 @@ module RolloutUi
   def self.rollout
     @@rollout
   end
+
+  def self.register_user_fetcher(user_fetcher)
+    @@user_fetcher = user_fetcher
+  end
+
+  def self.user_fetcher
+    @@user_fetcher
+  end
 end

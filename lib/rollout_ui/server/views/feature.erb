@@ -6,7 +6,7 @@
     <select class="percentage" name="percentage">
       <% 0.upto(100) do |i| %>
         <% if i % 5 == 0 %>
-          <option value="<%= i %>"<%= " selected='selected'" if feature.percentage == i.to_s %>><%= i %>%</option>
+          <option value="<%= i %>"<%= " selected='selected'" if feature.percentage == i %>><%= i %>%</option>
         <% end %>
       <% end %>
     </select>
@@ -35,6 +35,7 @@
           <option selected="selected"><%= uid %></option>
       <% end %>
     </select>
+    <input type="hidden" name="users[]" value="" />
     <input type="submit" value="Save" />
   </form>
 </div>

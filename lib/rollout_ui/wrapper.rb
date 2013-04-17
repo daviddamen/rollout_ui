@@ -14,20 +14,12 @@ module RolloutUi
     end
 
     def groups
-      rollout.instance_variable_get("@groups").keys
-    end
-
-    def add_feature(feature)
-      redis.sadd(:features, feature)
+      @rollout.instance_variable_get("@groups").keys
     end
 
     def features
-      features = redis.smembers(:features)
-      features ? features.sort : []
-    end
-
-    def redis
-      rollout.instance_variable_get("@redis")
+      features = @rollout.features
+      features ? features.uniq.sort : []
     end
 
     def fetch(uid_prefix)
